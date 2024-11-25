@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+  <head>
+     
+    <meta charset="UTF-8">
+    <title>Hexo部署到Github - Steve-L</title>
+    <link rel="shortcut icon" href="/static/img/icon.png">
+    <link rel="icon" href="/static/img/icon.png" sizes="192x192"/>
+    
+<link rel="stylesheet" href="/static/kico.css">
+<link rel="stylesheet" href="/static/hingle.css">
+
+    
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1"/>
+    <meta property="og:site_name" content="Steve-L">
+    <meta property="og:title" content="Hexo部署到Github"/>
+    
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+  <body>
+    <header>
+    <div class="head-title">
+        <h4>Steve-L</h4>
+    </div>
+    <div class="head-action">
+        <div class="toggle-btn"></div>
+        <div class="light-btn"></div>
+        <div class="search-btn"></div>
+    </div>
+    <form class="head-search" method="post">
+        <input type="text" name="s" placeholder="搜索什么？">
+    </form>
+    <nav class="head-menu">
+        <a href="/">首页</a>
+        <div class="has-child">
+            <a>分类</a>
+            <div class="sub-menu">
+                <a class="category-link" href="/categories/%E5%9B%BD%E5%AD%A6/">国学</a><a class="category-link" href="/categories/%E5%A1%9E%E6%96%AF%E4%B9%A6/">塞斯书</a><a class="category-link" href="/categories/%E5%B7%A5%E5%85%B7/">工具</a><a class="category-link" href="/categories/%E6%95%99%E7%A8%8B/">教程</a><a class="category-link" href="/categories/%E8%BF%9B%E6%AD%A5/">进步</a><a class="category-link" href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a><a class="category-link" href="/categories/%E9%9F%B3%E4%B9%90/">音乐</a>
+            </div>
+        </div>
+        
+    </nav>
+</header>
+
+    <main>
+    <div class="wrap min">
+        <section class="post-title">
+            <h2>Hexo部署到Github</h2>
+            <div class="post-meta">
+                <time class="date">2023.05.21</time>
+            
+                <span class="category"><a class="category-link" href="/categories/%E6%95%99%E7%A8%8B/">教程</a></span>
+            
+            </div>
+        </section>
+        <article class="post-content">
+        
+            <blockquote>这篇文章上次修改于 555 天前，可能其部分内容已经发生变化，如有疑问可询问作者。</blockquote>
+        
+            <p>我的部署过程。</p>
+<h2 id="一、新建仓库"><a href="#一、新建仓库" class="headerlink" title="一、新建仓库"></a>一、新建仓库</h2><p>在你的账号里新建仓库</p>
+<p>user-name&#x2F;user-name.github.io (最好按照格式来)<br>Public</p>
+<p>创建。</p>
+<h2 id="二、部署Hexo"><a href="#二、部署Hexo" class="headerlink" title="二、部署Hexo"></a>二、部署Hexo</h2><h3 id="1-修改文件"><a href="#1-修改文件" class="headerlink" title="1.修改文件"></a>1.修改文件</h3><p>参照样式修改Hexo主目录里的 -config.yml 文件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># URL</span><br><span class="line">url: https://user-name.github.io</span><br><span class="line">root: /</span><br><span class="line"></span><br><span class="line"># Deployment</span><br><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: https://github.com/user-name/user-name.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+<p>运行一下看有没有问题</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-安装工具"><a href="#2-安装工具" class="headerlink" title="2.安装工具"></a>2.安装工具</h3><p>在博客主目录里运行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-上传到Github"><a href="#3-上传到Github" class="headerlink" title="3.上传到Github"></a>3.上传到Github</h3><p>先清理和生成一下文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo cl -g</span><br></pre></td></tr></table></figure>
+<p>正式上传</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+<p>最后，到 user-name.github.io 看是否顺利生成网页。<br>后面更新文章的话，重复步骤(3.)就可以了。</p>
+<p>这里，部署步骤就告一段落了。</p>
+<h2 id="三、域名"><a href="#三、域名" class="headerlink" title="三、域名"></a>三、域名</h2><p>进阶操作。如果有一个属于自己域名，那么绑定一下还是挺帅的。</p>
+<h3 id="1-新建CNAME"><a href="#1-新建CNAME" class="headerlink" title="1.新建CNAME"></a>1.新建CNAME</h3><p>在本地主目录 source 文件夹里新建一个CNAME文件，写上自己的域名，例如:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">abc.com</span><br></pre></td></tr></table></figure>
+<p>注意，没有[https:&#x2F;&#x2F;]这一串,CNAME也没有后缀名。</p>
+<h3 id="2-设置"><a href="#2-设置" class="headerlink" title="2.设置"></a>2.设置</h3><p>进入博客的仓库里，点setting -&gt; Pages ，<br>在Custom domain里输入域名</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">abc.com</span><br></pre></td></tr></table></figure>
+<p>Save</p>
+<p>Enforce HTTPS -&gt; 打勾。</p>
+<h3 id="3-绑定"><a href="#3-绑定" class="headerlink" title="3.绑定"></a>3.绑定</h3><p>本地 ping 一下</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ping user-name.github.io</span><br></pre></td></tr></table></figure>
+<p>得到一个IP地址。</p>
+<p>然后到一个管理网站里，例如: <a target="_blank" rel="noopener" href="https://dash.cloudflare.com/">CLOUDFLARE</a><br>添加你的域名。</p>
+<p>点击DNS，新建两个A类:一个顶级,一个www，在地址上填刚才ping到的IP. 这样带不带 www 就都可以访问了。</p>
+<p>最后，试一下网址，看有没有正常访问，不行等几分钟再试一下。</p>
+<hr>
+<p>整个流程到这里就结束了，祝部署顺利。</p>
+
+        </article>
+        <section class="post-near">
+            <ul>
+                
+                    <li>上一篇: <a href="/2023/05/28/0/2023/05/notepad%20editor/">文本编辑器</a></li>
+                
+                
+                    <li>下一篇: <a href="/2023/05/19/0/2023/05/Manjaro/">Linux-Manjaro KDE 版本</a></li>
+                
+            </ul>
+        </section>
+        
+            <section class="post-tags">
+            <a class="-none-link" href="/tags/Hexo/" rel="tag">Hexo</a>
+            </section>
+        
+    
+        <section class="post-author">
+        
+            <figure class="author-avatar">
+                <div class="avatar-wrapper">
+                <img src="/static/img/head pic.gif" alt="Steve-L" loop autoplay />
+            </div>
+        </figure>
+            </figure>
+        
+            <div class="author-info">
+                <h4>Steve-L</h4>
+                <p>个人的一些整理</p>
+            </div>
+        </section>
+    
+    </div>
+    <script>
+    document.addEventListener('contextmenu', function (event) {
+        event.preventDefault();
+        return false;
+      });
+    </script>
+</main>
+
+    <footer>
+    <div class="buttons">
+        <a class="to-top" href="#"></a>
+    </div>
+    <div class="wrap min">
+        <section class="widget">
+            <div class="row">
+                <div class="col-m-4">
+                    <h3 class="title-recent">最新文章：</h3>
+                    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2024/11/25/%E7%81%B5%E9%AD%82%E6%B0%B8%E7%94%9F-%E9%99%84%E5%BD%95-05/">附录——第五部分</a></li><li class="post-list-item"><a class="post-list-link" href="/2024/11/25/%E7%81%B5%E9%AD%82%E6%B0%B8%E7%94%9F-%E9%99%84%E5%BD%95-04/">附录——第四部分</a></li><li class="post-list-item"><a class="post-list-link" href="/2024/08/17/08/%E7%81%B5%E9%AD%82%E6%B0%B8%E7%94%9F-%E9%99%84%E5%BD%95-02/">附录——第二部分</a></li><li class="post-list-item"><a class="post-list-link" href="/2024/08/04/08/%E7%81%B5%E9%AD%82%E6%B0%B8%E7%94%9F-%E9%99%84%E5%BD%95-01/">附录——第一部分</a></li><li class="post-list-item"><a class="post-list-link" href="/2024/07/28/07/%E7%81%B5%E9%AD%82%E6%B0%B8%E7%94%9F-%E7%AC%AC%E4%BA%8C%E5%8D%81%E4%BA%8C%E7%AB%A0/">第二十二章-辞别和引介：由我自己的经验来看多次元人格的种种面貌</a></li><li class="post-list-item"><a class="post-list-link" href="/2024/05/21/05/%E6%88%91%E5%96%9C%E6%AC%A2%E7%9A%84%E8%BD%AF%E4%BB%B6/">我喜欢的软件</a></li></ul>
+                </div>
+                <div class="col-m-4">
+                    <h3 class="title-date">以往笔记：</h3>
+                    <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/11/">十一月 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/08/">八月 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/07/">七月 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/05/">五月 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/04/">四月 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">三月 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/02/">二月 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">一月 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/12/">十二月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">十一月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">十月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/09/">九月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/08/">八月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">七月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/06/">六月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/05/">五月 2023</a></li></ul>
+                </div>
+                <div class="col-m-4">
+                    <h3 class="title-tags">标签云：</h3>
+                    <a href="/tags/Hexo/" style="font-size: 17.5px;">Hexo</a> <a href="/tags/Sadhguru/" style="font-size: 17.5px;">Sadhguru</a> <a href="/tags/%E4%B8%8D%E8%83%BD%E7%BB%93%E5%A9%9A%E7%9A%84%E7%94%B7%E4%BA%BA/" style="font-size: 10px;">不能结婚的男人</a> <a href="/tags/%E5%8B%BF%E8%A8%80%E6%8E%A8%E7%90%86/" style="font-size: 12.5px;">勿言推理</a> <a href="/tags/%E7%81%B5%E9%AD%82%E6%B0%B8%E7%94%9F/" style="font-size: 20px;">灵魂永生</a> <a href="/tags/%E7%B3%BB%E7%BB%9F/" style="font-size: 15px;">系统</a> <a href="/tags/%E8%80%81%E9%AB%98%E8%88%87%E5%B0%8F%E8%8C%89/" style="font-size: 15px;">老高與小茉</a> <a href="/tags/%E8%87%AA%E5%B7%B1/" style="font-size: 10px;">自己</a> <a href="/tags/%E9%81%93%E5%BE%B7%E7%BB%8F/" style="font-size: 17.5px;">道德经</a>
+                </div>
+            </div>
+        </section>
+        <section class="sub-footer">
+            <p>© 2024 <a href="/">Steve-L</a>. All Rights Reserved. Theme By <a href="https://github.com/Dreamer-Paul/Hingle" target="_blank" rel="nofollow">Hingle</a>.</p>
+        </section>
+    </div>
+</footer>
+
+
+<script src="/static/kico.js"></script>
+<script src="/static/hingle.js"></script>
+
+
+<script>var hingle = new Paul_Hingle({"copyright":true,"night":true});</script>
+
+  </body>
+</html>
