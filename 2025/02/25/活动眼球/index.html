@@ -3,7 +3,7 @@
   <head>
      
     <meta charset="UTF-8">
-    <title>道德经 - Steve-L</title>
+    <title>活动眼睛 - Steve-L</title>
     <link rel="shortcut icon" href="/static/img/icon.png">
     <link rel="icon" href="/static/img/icon.png" sizes="192x192"/>
     
@@ -15,7 +15,7 @@
 
     <meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1"/>
     <meta property="og:site_name" content="Steve-L">
-    <meta property="og:title" content=""/>
+    <meta property="og:title" content="活动眼睛"/>
     
 <meta name="generator" content="Hexo 7.2.0"></head>
 
@@ -46,109 +46,58 @@
 
     <main>
     <div class="wrap min">
-        <section class="home-title">
+        <section class="post-title">
+            <h2>活动眼睛</h2>
+            <div class="post-meta">
+                <time class="date">2025.02.25</time>
             
-            <h1>“道德经”</h1>
+                <span class="category"><a class="category-link" href="/categories/%E5%B7%A5%E5%85%B7/">工具</a></span>
+            
+            </div>
         </section>
-        <section class="home-posts">
-    
-    <div class="post-item">
-        <h2>
-            <a href="/2024/03/29/0/2024/03/%E9%81%93%E5%BE%B7%E7%BB%8F-%E7%AC%AC%E5%85%AB%E7%AB%A0/">道德经-第八章</a>
-        </h2>
-    
-        <p>.
-上善治水。
-水善利万物而有静，居众人之所恶，故几于道矣！
-..................
+        <article class="post-content">
+        
+            <p>这是一个用于舒缓眼睛的小程序，活动活动眼睛。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">import tkinter as tk</span><br><span class="line">import random</span><br><span class="line"></span><br><span class="line">class EyeRelaxation:</span><br><span class="line">    def __init__(self, master):</span><br><span class="line">        self.master = master</span><br><span class="line">        master.title(<span class="string">&quot;眼睛放松&quot;</span>)</span><br><span class="line">        master.geometry(<span class="string">&quot;1920x1080&quot;</span>)  <span class="comment"># 设置为常见的分辨率</span></span><br><span class="line">        master.configure(<span class="built_in">bg</span>=<span class="string">&quot;#6E7B6C&quot;</span>)  <span class="comment"># 设置整个窗口的背景颜色</span></span><br><span class="line"></span><br><span class="line">        self.canvas = tk.Canvas(master, width=1920, height=1080, <span class="built_in">bg</span>=<span class="string">&quot;#6E7B6C&quot;</span>, highlightthickness=0)</span><br><span class="line">        self.canvas.pack(fill=tk.BOTH, <span class="built_in">expand</span>=1)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 固定小球大小</span></span><br><span class="line">        ball_size = 40  <span class="comment"># 保持小球大小为40像素</span></span><br><span class="line">        self.ball = self.canvas.create_oval(10, 10, ball_size+10, ball_size+10, fill=<span class="string">&quot;#C7EDCC&quot;</span>, outline=<span class="string">&quot;#C7EDCC&quot;</span>)</span><br><span class="line">        self.move_ball()</span><br><span class="line"></span><br><span class="line">    def move_ball(self):</span><br><span class="line">        try:</span><br><span class="line">            x1, y1, x2, y2 = self.canvas.coords(self.ball)</span><br><span class="line">            ball_center_x = (x1 + x2) / 2</span><br><span class="line">            ball_center_y = (y1 + y2) / 2</span><br><span class="line">            </span><br><span class="line">            <span class="comment"># 生成随机位置，不考虑窗口边界</span></span><br><span class="line">            new_x = random.randint(0, 1920)</span><br><span class="line">            new_y = random.randint(0, 1080)</span><br><span class="line">            </span><br><span class="line">            self.canvas.move(self.ball, new_x - ball_center_x, new_y - ball_center_y)</span><br><span class="line">            </span><br><span class="line">            self.master.after(2000, self.move_ball)  <span class="comment"># 保持原有的移动频率</span></span><br><span class="line">        except tk.TclError:</span><br><span class="line">            pass  <span class="comment"># 忽略Tkinter相关的异常，避免程序闪退</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    root = tk.Tk()</span><br><span class="line">    app = EyeRelaxation(root)</span><br><span class="line">    root.mainloop()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>保存为XX.py</p>
+<p>这是个python程序，需要下载<a target="_blank" rel="noopener" href="https://www.python.org/downloads/">python</a>.<br>安装完成后，用cmd可以运行。</p>
+<p>使用愉快~</p>
 
-</p>
-    
-        <div class="post-meta">
-            <time class="date">2024.03.29</time>
-            
-                <span class="category"><a class="category-link" href="/categories/%E5%9B%BD%E5%AD%A6/">国学</a></span>
-            
-            
-                <span class="tags"><a class="-none-link" href="/tags/%E9%81%93%E5%BE%B7%E7%BB%8F/" rel="tag">道德经</a></span>
-            
-        </div>
-    </div>
-    
-    <div class="post-item">
-        <h2>
-            <a href="/2024/03/03/0/2024/03/%E9%81%93%E5%BE%B7%E7%BB%8F-%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E7%AC%AC%E4%BA%94%E7%AB%A0/">道德经-第四章-第五章</a>
-        </h2>
-    
-        <p>.
-道盅，而用之又弗盈也。渊呵，似万物之宗。
-挫其锐，解其纷，和其光，同其尘。
-湛呵，似或存。吾不知其谁之子也，象帝之先。
-..................
-天地不仁，以万物为刍狗。
-圣人不...</p>
-    
-        <div class="post-meta">
-            <time class="date">2024.03.03</time>
-            
-                <span class="category"><a class="category-link" href="/categories/%E5%9B%BD%E5%AD%A6/">国学</a></span>
-            
-            
-                <span class="tags"><a class="-none-link" href="/tags/%E9%81%93%E5%BE%B7%E7%BB%8F/" rel="tag">道德经</a></span>
-            
-        </div>
-    </div>
-    
-    <div class="post-item">
-        <h2>
-            <a href="/2023/12/31/0/2023/12/%E9%81%93%E5%BE%B7%E7%BB%8F-%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E7%AC%AC%E4%B8%89%E7%AB%A0/">道德经-第二章-第三章</a>
-        </h2>
-    
-        <p>.
-天下皆知美，为美，恶已。皆知善，斯不善矣。
-有，无之相生也。难，易之相成也。长，短之相形也。高，下之相盈也。音，声之相和也。先，后之相随，恒也。
-是以圣人居无为之事，行不言之教。万物作而弗始...</p>
-    
-        <div class="post-meta">
-            <time class="date">2023.12.31</time>
-            
-                <span class="category"><a class="category-link" href="/categories/%E5%9B%BD%E5%AD%A6/">国学</a></span>
-            
-            
-                <span class="tags"><a class="-none-link" href="/tags/%E9%81%93%E5%BE%B7%E7%BB%8F/" rel="tag">道德经</a></span>
-            
-        </div>
-    </div>
-    
-    <div class="post-item">
-        <h2>
-            <a href="/2023/12/20/0/2023/12/%E9%81%93%E5%BE%B7%E7%BB%8F-%E7%AC%AC%E4%B8%80%E7%AB%A0/">道德经-第一章</a>
-        </h2>
-    
-        <p>.
-道可道也，非恒道也；名可名也，非恒名也。
-无名，万物之始也；有名，万物之母也。
-故恒无欲也，以观其妙；恒有欲也，以观其所徼。
-两者同出，异名同谓；玄之又玄，众妙之门。
-..............</p>
-    
-        <div class="post-meta">
-            <time class="date">2023.12.20</time>
-            
-                <span class="category"><a class="category-link" href="/categories/%E5%9B%BD%E5%AD%A6/">国学</a></span>
-            
-            
-                <span class="tags"><a class="-none-link" href="/tags/%E9%81%93%E5%BE%B7%E7%BB%8F/" rel="tag">道德经</a></span>
-            
-        </div>
-    </div>
-    
-</section>
-
-        <section class="page-navigator">
-            <span class="page-number current">1</span>
+        </article>
+        <section class="post-near">
+            <ul>
+                
+                    <li>上一篇: 木有了~ </li>
+                
+                
+                    <li>下一篇: <a href="/2025/02/16/%E4%B8%AA%E4%BA%BA%E5%AE%9E%E7%9B%B8%E7%9A%84%E6%9C%AC%E8%B4%A8-%E7%AC%AC%E5%9B%9B%E7%AB%A0/">第四章——你的想象力和你的信念</a></li>
+                
+            </ul>
         </section>
+        
+    
+        <section class="post-author">
+        
+            <figure class="author-avatar">
+                <div class="avatar-wrapper">
+                <img src="/static/img/head pic.gif" alt="Steve-L" loop autoplay />
+            </div>
+        </figure>
+            </figure>
+        
+            <div class="author-info">
+                <h4>Steve-L</h4>
+                <p>个人的一些整理</p>
+            </div>
+        </section>
+    
     </div>
+    <script>
+    document.addEventListener('contextmenu', function (event) {
+        event.preventDefault();
+        return false;
+      });
+    </script>
 </main>
 
     <footer>
