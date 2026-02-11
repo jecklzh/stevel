@@ -5,7 +5,7 @@
 # Site
 title: Steve-L
 subtitle: ''
-description: '我觉得我是一个比较喜欢研究各种细节的人'
+description: '今晚吃什么？'
 keywords:
 author: Steve-L
 language: zh-CN
@@ -100,7 +100,7 @@ ignore:
 ## Plugins: aplayer
 ## Themes: https://hexo.io/themes/
 ## theme: landscape
-theme: hingle
+theme: stevel
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
