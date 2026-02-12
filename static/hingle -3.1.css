@@ -204,37 +204,18 @@ header {
 
 /* -- 手机版菜单 */
 @media screen and (max-width: 599px) {
-    .head-menu {
-        max-height: 0;
-        padding: 0 1em;
-        display: block;
-        overflow-y: auto;
-        border-right: .5em solid transparent;
-        transition: margin .3s, max-height .3s;
+    .head-title {
+        display: none;
     }
-
-    .head-menu.active {
-        margin: 1em 0;
-        max-height: 18rem;
+    
+    .toggle-btn,
+    .search-btn {
+        line-height: 3.2em;  /* 和header一样高 */
     }
-
-    .head-menu .sub-menu { 
-        margin-left: 1.5em;
-    }
-
-    .head-menu .sub-menu a {
-        display: list-item;
-        list-style-type: circle;
-    }
-
-    .head-menu::-webkit-scrollbar {
-        width: 8px;
-        height: 8px;
-    }
-
-    .head-menu::-webkit-scrollbar-thumb {
-        border-radius: 5px;
-        background: rgba(0, 0, 0, .1);
+    
+    .toggle-btn:before,
+    .search-btn:before {
+        vertical-align: middle;
     }
 }
 
@@ -704,8 +685,8 @@ article h1:before {
 
 .post-author .author-avatar {
     flex-shrink: 0;
-    width: 4.2em;  /* 可以改成 3.5em 或 4.5em */
-    height: 4.2em;
+    width: 3.9em;  /* 可以改成 3.5em 或 4.5em */
+    height: 3.9em;
 }
 
 .post-author img {
@@ -732,133 +713,6 @@ article h1:before {
     font-weight: bold;
     margin-bottom: .5em;
     margin-top: 0;
-}
-
-@media screen and (max-width: 800px) {
-    .post-author {
-        margin-top: 6em;
-        padding-top: 3em;
-    }
-
-    .post-author .author-avatar {
-        left: 0;
-        right: 0;
-        top: -3em;
-        margin: auto;
-        position: absolute;
-    }
-
-    .post-author .author-info { 
-        margin-left: 0;
-    }
-
-    .post-author h4 { 
-        text-align: center;
-    }
-}
-
-/* - 评论区 */
-.post-comments {
-    word-break: break-word;
-    scroll-margin-top: 5em;
-    animation: fade-in-top .3s .5s backwards;
-    -webkit-animation: fade-in-top .3s .5s backwards;
-}
-
-.post-comments input, 
-.post-comments textarea {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-}
-
-/* -- 评论表单 */
-.comment-form { 
-    margin-bottom: 2em;
-}
-
-/* -- 评论列表 */
-.comment-list .comment-single {
-    position: relative;
-    padding-left: 3.75em;
-    margin-bottom: 1.5em;
-    scroll-margin-top: 5em;
-    transition: transform .3s;
-}
-
-.comment-list .comment-single:after {
-    content: "";
-    clear: both;
-    display: block;
-}
-
-.comment-list .comment-single.active { 
-    transform: scale(1.05);
-}
-
-.comment-list .comment-child { 
-    margin-left: 2em;
-}
-
-/* --- 评论头像 */
-.comment-list .avatar {
-    top: 0;
-    left: 0;
-    min-width: 45px;
-    max-width: 45px;
-    position: absolute;
-    border-radius: 100%;
-    transition: filter .3s, transform .3s;
-}
-
-.comment-list .comment-single:hover .avatar {
-    transform: rotate(1turn);
-    -webkit-transform: rotate(1turn);
-}
-
-/* --- 评论信息 */
-.comment-list .comment-meta {
-    margin-bottom: .25em;
-    color: var(--sub);
-}
-
-.comment-list .comment-time:before {
-    content: "\f017";
-    margin-right: .4em;
-    display: inline-block;
-    font-family: "FontAwesome";
-}
-
-.comment-list .comment-author,
-.comment-list .comment-time {
-    margin-right: .8em;
-}
-
-/* --- 评论内容 */
-.comment-single .comment-reply {
-    opacity: 0;
-    float: right;
-    line-height: 1.8;
-    transition: opacity .3s;
-}
-
-.comment-single:hover .comment-reply { 
-    opacity: 1;
-}
-
-.comment-reply a, 
-.cancel-comment-reply a { 
-    color: var(--sub);
-}
-
-.comment-reply a:hover, 
-.cancel-comment-reply a:hover { 
-    color: var(--text);
-}
-
-.cancel-comment-reply {
-    display: block;
-    margin: .5em 0;
-    text-align: right;
 }
 
 @media screen and (max-width: 600px) {
@@ -1264,4 +1118,50 @@ pre[class*="language-"].line-numbers {
 .archive-list-item:hover .archive-list-count {
     color: var(--accent) !important;
     transition: color 0.3s;
+}
+
+/* 手机端：核心修复 */
+@media screen and (max-width: 800px) {
+    /* 1. 顶栏改为相对定位，跟随滚动 */
+    header {
+        position: relative;
+    }
+    
+    main {
+        margin-top: 0;
+    }
+    
+    /* 2. 文章结尾作者信息 - 完全重写 */
+    .post-author {
+        display: flex !important;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 2em 1.5em;
+        margin-top: 0 !important;
+        position: relative;
+    }
+    
+    .post-author .author-avatar {
+        width: 3.6em;
+        height: 3.6em;
+        margin: 0 0 1.2em 0;
+        /* 关键：强制取消绝对定位 */
+        position: relative !important;
+        left: auto !important;
+        right: auto !important;
+        top: auto !important;
+    }
+    
+    .post-author .author-info {
+        margin-left: 0;
+        text-align: center;
+    }
+    
+    .post-author h4,
+    .post-author p {
+        text-align: center;
+        margin-left: 0;
+        margin-right: 0;
+    }
 }

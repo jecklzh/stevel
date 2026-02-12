@@ -202,23 +202,6 @@ header {
     font-family: "FontAwesome";
 }
 
-/* -- 手机版菜单 */
-@media screen and (max-width: 599px) {
-    .head-title {
-        display: none;
-    }
-    
-    .toggle-btn,
-    .search-btn {
-        line-height: 3.2em;  /* 和header一样高 */
-    }
-    
-    .toggle-btn:before,
-    .search-btn:before {
-        vertical-align: middle;
-    }
-}
-
 /* -- 电脑版菜单 */
 @media screen and (min-width: 600px) {
     .head-menu {
@@ -685,8 +668,8 @@ article h1:before {
 
 .post-author .author-avatar {
     flex-shrink: 0;
-    width: 4.2em;  /* 可以改成 3.5em 或 4.5em */
-    height: 4.2em;
+    width: 3.9em;  /* 可以改成 3.5em 或 4.5em */
+    height: 3.9em;
 }
 
 .post-author img {
@@ -1120,9 +1103,36 @@ pre[class*="language-"].line-numbers {
     transition: color 0.3s;
 }
 
-/* 手机端：核心修复 */
+/* ==========================================
+   手机端优化（统一整合）
+   ========================================== */
+
+/* ==========================================
+   手机端优化（统一整合）
+   ========================================== */
+
+/* 手机端：状态栏优化 */
+@media screen and (max-width: 599px) {
+    /* 隐藏"Steve-L"标题 */
+    .head-title {
+        display: none;
+    }
+    
+    /* 状态栏按钮垂直居中 */
+    .toggle-btn,
+    .search-btn {
+        line-height: 3.2em;
+    }
+    
+    .toggle-btn:before,
+    .search-btn:before {
+        vertical-align: middle;
+    }
+}
+
+/* 手机端：全面布局优化 */
 @media screen and (max-width: 800px) {
-    /* 1. 顶栏改为相对定位，跟随滚动 */
+    /* 顶栏改为相对定位，跟随滚动 */
     header {
         position: relative;
     }
@@ -1131,36 +1141,51 @@ pre[class*="language-"].line-numbers {
         margin-top: 0;
     }
     
-    /* 2. 文章结尾作者信息 - 完全重写 */
+    /* 文章结尾作者信息 - 横向布局 */
     .post-author {
         display: flex !important;
-        flex-direction: column;
+        flex-direction: row;  /* 横向排列 */
         align-items: center;
-        text-align: center;
-        padding: 2em 1.5em;
+        text-align: left;
+        padding: 1.5em 1em;
         margin-top: 0 !important;
         position: relative;
     }
     
     .post-author .author-avatar {
-        width: 4.5em;
-        height: 4.5em;
-        margin: 0 0 1.2em 0;
-        /* 关键：强制取消绝对定位 */
+        width: 3.5em;
+        height: 3.5em;
+        margin: 0 1em 0 0;  /* 右边距 */
+        flex-shrink: 0;
         position: relative !important;
         left: auto !important;
         right: auto !important;
         top: auto !important;
     }
     
+    .post-author img {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        border: 2.1px solid var(--border);
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+        transition: transform .3s;
+        display: block;
+    }
+    
+    .post-author img:hover {
+        transform: scale(1.05);
+    }
+    
     .post-author .author-info {
         margin-left: 0;
-        text-align: center;
+        text-align: left;
+        flex: 1;
     }
     
     .post-author h4,
     .post-author p {
-        text-align: center;
+        text-align: left;
         margin-left: 0;
         margin-right: 0;
     }
