@@ -1104,14 +1104,10 @@ pre[class*="language-"].line-numbers {
 }
 
 /* ==========================================
-   手机端优化（统一整合）
+   手机端优化（统一整合 - 最终版）
    ========================================== */
 
-/* ==========================================
-   手机端优化（统一整合）
-   ========================================== */
-
-/* 手机端：状态栏优化 */
+/* 手机端：状态栏和菜单 */
 @media screen and (max-width: 599px) {
     /* 隐藏"Steve-L"标题 */
     .head-title {
@@ -1127,6 +1123,40 @@ pre[class*="language-"].line-numbers {
     .toggle-btn:before,
     .search-btn:before {
         vertical-align: middle;
+    }
+    
+    /* 菜单折叠功能 */
+    .head-menu {
+        max-height: 0;
+        padding: 0 1em;
+        display: block;
+        overflow-y: auto;
+        border-right: .5em solid transparent;
+        transition: margin .3s, max-height .3s;
+    }
+    
+    .head-menu.active {
+        margin: 1em 0;
+        max-height: 18rem;
+    }
+    
+    .head-menu .sub-menu {
+        margin-left: 1.5em;
+    }
+    
+    .head-menu .sub-menu a {
+        display: list-item;
+        list-style-type: circle;
+    }
+    
+    .head-menu::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+    }
+    
+    .head-menu::-webkit-scrollbar-thumb {
+        border-radius: 5px;
+        background: rgba(0, 0, 0, .1);
     }
 }
 
@@ -1144,7 +1174,7 @@ pre[class*="language-"].line-numbers {
     /* 文章结尾作者信息 - 横向布局 */
     .post-author {
         display: flex !important;
-        flex-direction: row;  /* 横向排列 */
+        flex-direction: row;
         align-items: center;
         text-align: left;
         padding: 1.5em 1em;
@@ -1155,7 +1185,7 @@ pre[class*="language-"].line-numbers {
     .post-author .author-avatar {
         width: 3.5em;
         height: 3.5em;
-        margin: 0 1em 0 0;  /* 右边距 */
+        margin: 0 1em 0 0;
         flex-shrink: 0;
         position: relative !important;
         left: auto !important;
