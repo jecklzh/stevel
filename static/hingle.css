@@ -1117,20 +1117,24 @@ pre[class*="language-"].line-numbers {
         display: none;
     }
 
-    /* 只修复按钮的垂直对齐，不改header布局 */
+    /* 强制按钮和图标统一高度对齐 */
     .toggle-btn,
     .search-btn {
-        display: inline-flex !important;  /* 改用inline-flex，不影响布局 */
-        align-items: center !important;
-        justify-content: center !important;
+        height: 2em !important;
+        line-height: 2em !important;  /* 关键：用line-height撑开高度 */
+        padding: 0 !important;
+        display: inline-block !important;  /* 不用flex，用传统方式 */
         vertical-align: middle !important;
+        text-align: center !important;
+        width: 2em !important;
     }
     
-    /* 修复搜索框位置 */
-    .searchbox {
-        flex: 1 !important;
+    .toggle-btn:before,
+    .search-btn:before {
+        display: inline-block !important;
+        vertical-align: middle !important;
+        line-height: 1 !important;  /* 重置图标自己的行高 */
         margin: 0 !important;
-        align-self: center !important;  /* 垂直居中 */
     }
     
     /* 菜单折叠功能 */
