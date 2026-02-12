@@ -1112,26 +1112,6 @@ pre[class*="language-"].line-numbers {
         display: none;
     }
     
-    /* 按钮：仿照搜索栏的布局方式 */
-    .toggle-btn,
-    .search-btn {
-        display: flex !important;           /* 改用 flex 布局 */
-        align-items: center !important;     /* 垂直居中 */
-        justify-content: center !important; /* 水平居中 */
-        margin: 0.6em 0.6em !important;     /* 仿照搜索栏：上下 0.6em */
-        width: 2em !important;              /* 内容宽度 */
-        height: 2em !important;             /* 内容高度 */
-    }
-    
-    /* 图标：取消 line-height 控制，靠 flex 居中 */
-    .toggle-btn:before,
-    .search-btn:before {
-        display: block;
-        line-height: 1 !important;  /* 关键：设为 1，不要 2em 或 3.2em */
-        font-size: 1em;
-        font-family: "FontAwesome";
-        text-align: center;
-    }
     
     /* 菜单折叠功能 */
     .head-menu {
