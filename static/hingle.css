@@ -1117,15 +1117,13 @@ pre[class*="language-"].line-numbers {
         display: none;
     }
 
-    header {
-        min-height: 3.2em !important;
-        display: flex !important;
-        align-items: center !important;  /* 让所有子元素垂直居中 */
-    }
-    
+    /* 只修复按钮的垂直对齐，不改header布局 */
     .toggle-btn,
     .search-btn {
-        flex-shrink: 0;  /* 防止按钮被压缩 */
+        display: inline-flex !important;  /* 改用inline-flex，不影响布局 */
+        align-items: center !important;
+        justify-content: center !important;
+        vertical-align: middle !important;
     }
     
     /* 修复搜索框位置 */
