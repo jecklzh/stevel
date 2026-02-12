@@ -1116,6 +1116,23 @@ pre[class*="language-"].line-numbers {
     .head-title {
         display: none;
     }
+
+    /* 强制按钮居中 */
+    .toggle-btn,
+    .search-btn {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        height: 2em !important;
+        width: 2em !important;
+        margin: 0.6em !important;
+    }
+    
+    .toggle-btn:before,
+    .search-btn:before {
+        line-height: 1 !important;
+        font-size: 1em !important;
+    }
     
     
     /* 菜单折叠功能 */
