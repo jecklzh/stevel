@@ -1118,15 +1118,22 @@ pre[class*="language-"].line-numbers {
     }
 
     header {
-        background: red !important;  /* 临时测试 */
         min-height: 3.2em !important;
+        display: flex !important;
+        align-items: center !important;  /* 让所有子元素垂直居中 */
     }
     
     .toggle-btn,
     .search-btn {
-        background: yellow !important;  /* 临时测试 */
+        flex-shrink: 0;  /* 防止按钮被压缩 */
     }
     
+    /* 修复搜索框位置 */
+    .searchbox {
+        flex: 1 !important;
+        margin: 0 !important;
+        align-self: center !important;  /* 垂直居中 */
+    }
     
     /* 菜单折叠功能 */
     .head-menu {
