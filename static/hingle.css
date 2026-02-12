@@ -1117,28 +1117,14 @@ pre[class*="language-"].line-numbers {
         display: none;
     }
 
-    /* 按钮强制居中 - 终极方案 */
-    .toggle-btn,
-    .search-btn {
-        padding: 0 !important;
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        height: 2em !important;
-        width: 2em !important;
-        margin: 0.6em !important;
+    header {
+        background: red !important;  /* 临时测试 */
+        min-height: 3.2em !important;
     }
     
-    .toggle-btn:before,
-    .search-btn:before {
-        margin: 0 !important;
-        padding: 0 !important;
-        line-height: 1 !important;
-        font-size: 1em !important;
-        vertical-align: baseline !important;  /* 关键：重置 vertical-align */
-        display: block !important;
-        width: 100% !important;
-        text-align: center !important;
+    .toggle-btn,
+    .search-btn {
+        background: yellow !important;  /* 临时测试 */
     }
     
     
