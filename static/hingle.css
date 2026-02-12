@@ -204,36 +204,17 @@ header {
 
 /* -- 手机版菜单 */
 @media screen and (max-width: 599px) {
-    /* 隐藏标题 */
     .head-title {
         display: none;
     }
     
-    /* header 使用 flex 布局 */
-    header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        min-height: 3.2em;
-    }
-    
-    /* 按钮自动垂直居中 */
+    /* 调整按钮的上下边距，让它视觉居中 */
     .toggle-btn,
     .search-btn {
-        margin: 0.6em;
-    }
-    
-    .toggle-btn {
-        order: 1;  /* 左侧 */
-    }
-    
-    .search-btn {
-        order: 3;  /* 右侧 */
-    }
-    
-    .head-search {
-        order: 2;  /* 中间 */
-        margin: 0.6em auto;
+        margin-top: 0.75em;   /* 稍微往下移一点 */
+        margin-bottom: 0.45em;
+        margin-left: 0.6em;
+        margin-right: 0.6em;
     }
 }
 
