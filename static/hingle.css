@@ -204,24 +204,18 @@ header {
 
 /* -- 手机版菜单 */
 @media screen and (max-width: 599px) {
-    /* 隐藏"Steve-L"标题 */
     .head-title {
         display: none;
     }
     
-    /* 按钮内部图标居中 */
-    .toggle-btn:before,
-    .search-btn:before {
-        line-height: 2em !important;
-        vertical-align: middle;
-    }
-    
-    /* 微调按钮位置 */
     .toggle-btn,
     .search-btn {
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        line-height: 3.2em;  /* 和header一样高 */
+    }
+    
+    .toggle-btn:before,
+    .search-btn:before {
+        vertical-align: middle;
     }
 }
 
