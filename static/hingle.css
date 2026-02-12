@@ -1107,29 +1107,30 @@ pre[class*="language-"].line-numbers {
    手机端优化（统一整合 - 最终版）
    ========================================== */
 
-/* 手机端：状态栏和菜单 */
 @media screen and (max-width: 599px) {
-    /* 隐藏"Steve-L"标题 */
     .head-title {
         display: none;
     }
     
-    /* 2. 修正左右按钮容器 */
+    /* 按钮：仿照搜索栏的布局方式 */
     .toggle-btn,
     .search-btn {
-        margin-top: 0 !important;    /* 移除顶部外边距 */
-        margin-bottom: 0 !important; /* 移除底部外边距 */
-        height: 3.2em;               /* 强制高度与导航栏一致 */
-        line-height: 3.2em;
+        display: flex !important;           /* 改用 flex 布局 */
+        align-items: center !important;     /* 垂直居中 */
+        justify-content: center !important; /* 水平居中 */
+        margin: 0.6em 0.6em !important;     /* 仿照搜索栏：上下 0.6em */
+        width: 2em !important;              /* 内容宽度 */
+        height: 2em !important;             /* 内容高度 */
     }
     
-    /* 3. 核心修复：强制图标在 3.2em 的垂直高度内居中 */
+    /* 图标：取消 line-height 控制，靠 flex 居中 */
     .toggle-btn:before,
     .search-btn:before {
-        display: inline-block !important; /* 改为行内块，方便受行高控制 */
-        line-height: 3.2em !important;    /* 关键：行高必须等于导航栏高度 3.2em */
-        vertical-align: middle;
-        height: 3.2em;
+        display: block;
+        line-height: 1 !important;  /* 关键：设为 1，不要 2em 或 3.2em */
+        font-size: 1em;
+        font-family: "FontAwesome";
+        text-align: center;
     }
     
     /* 菜单折叠功能 */
@@ -1190,8 +1191,8 @@ pre[class*="language-"].line-numbers {
     }
     
     .post-author .author-avatar {
-        width: 3.9em;
-        height: 3.9em;
+        width: 3.6em;
+        height: 3.6em;
         margin: 0 1em 0 0;
         flex-shrink: 0;
         position: relative !important;
