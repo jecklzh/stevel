@@ -1119,38 +1119,38 @@ pre[class*="language-"].line-numbers {
     }
 
     
-/* header作为flex容器 */
+/* header作为flex容器 - 这是关键！*/
     header {
         display: flex;
         flex-wrap: wrap;
-        align-items: center;  /* 垂直居中 */
+        align-items: center;  /* 所有子元素垂直居中 */
         min-height: 3.2em;
+    }
+
+    /* 按钮统一样式 */
+    .toggle-btn,
+    .search-btn {
+        float: none;
+        margin: .6em;
+        flex-shrink: 0;
     }
 
     /* 左侧按钮 */
     .toggle-btn {
-        float: none;
-        margin: .6em;
-        flex-shrink: 0;
-        order: 1;  /* 排第一 */
+        order: 1;
     }
 
     /* 搜索框在中间 */
     .head-search {
         flex: 1;
         float: none;
-        margin: .6em;
-        margin-left: 0;
-        margin-right: 0;
-        order: 2;  /* 排第二 */
+        margin: .6em 0;
+        order: 2;
     }
 
     /* 右侧按钮 */
     .search-btn {
-        float: none;
-        margin: .6em;
-        flex-shrink: 0;
-        order: 3;  /* 排第三 */
+        order: 3;
     }
 
     /* 菜单独占一行 */
