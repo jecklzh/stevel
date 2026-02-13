@@ -1145,10 +1145,14 @@ pre[class*="language-"].line-numbers {
     /* 状态栏 - 不固定 */
     header {
         position: relative;
+        display: flex;  /* 加上 */
+        align-items: center;  /* 加上 - 让所有子元素垂直居中 */
+        flex-wrap: wrap;  /* 加上 - 让菜单可以换行 */
+        min-height: 3.2em;  /* 加上 - 保证最小高度 */
     }
     
     main {
-        margin-top: 0;  /* 重置间距 */
+        margin-top: 0;
     }
     
     /* 文章结尾作者信息 - 横向布局 */
