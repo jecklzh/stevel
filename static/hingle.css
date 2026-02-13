@@ -1145,7 +1145,6 @@ pre[class*="language-"].line-numbers {
     /* 状态栏 - 不固定 */
     header {
         position: relative;
-        display: flex;  /* 加上 */
         min-height: 3.2em;  /* 加上 - 保证最小高度 */
     }
     
