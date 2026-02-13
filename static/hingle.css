@@ -1124,17 +1124,18 @@ pre[class*="language-"].line-numbers {
 height: 2em !important;
 width: 2em !important;
 margin: .6em !important;
+padding: 0 !important;
 display: flex !important;
 align-items: center !important;
 justify-content: center !important;
+line-height: 2em !important;  /* 强制容器行高 */
 }
 
 .toggle-btn:before,
 .search-btn:before {
-display: block !important;
-line-height: 1 !important;
-margin: 0 !important;
-vertical-align: baseline !important;
+display: inline-block !important;
+line-height: 2em !important;  /* 让图标也用相同行高 */
+vertical-align: middle !important;
 }
     
     /* 菜单折叠功能 */
