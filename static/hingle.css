@@ -1118,30 +1118,24 @@ pre[class*="language-"].line-numbers {
         display: none;
     }
 
-    /* 按钮统一对齐 - 使用flex */
-    .toggle-btn,
-    .search-btn {
-        height: 2em !important;
-        width: 2em !important;
-        margin: .6em !important;
-        padding: 0 !important;
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-    }
+    /* 修复按钮内图标垂直居中 */
+.toggle-btn,
+.search-btn {
+height: 2em !important;
+width: 2em !important;
+margin: .6em !important;
+display: flex !important;
+align-items: center !important;
+justify-content: center !important;
+}
 
-    .toggle-btn:before,
-    .search-btn:before {
-        line-height: 1 !important;
-        margin: 0 !important;
-    }
-
-    /* 搜索框对齐 */
-    .head-search {
-        display: flex;
-        align-items: center;
-        margin: .6em 0;
-    }
+.toggle-btn:before,
+.search-btn:before {
+display: block !important;
+line-height: 1 !important;
+margin: 0 !important;
+vertical-align: baseline !important;
+}
     
     /* 菜单折叠功能 */
     .head-menu {
