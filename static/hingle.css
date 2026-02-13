@@ -1113,50 +1113,8 @@ pre[class*="language-"].line-numbers {
    ========================================== */
 
 @media screen and (max-width: 599px) {
-    /* 隐藏标题 */
-    .head-title {
-        display: none;
-    }
 
-    
-/* header作为flex容器 - 这是关键！*/
-    header {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;  /* 所有子元素垂直居中 */
-        min-height: 3.2em;
-    }
-
-    /* 按钮统一样式 */
-    .toggle-btn,
-    .search-btn {
-        float: none;
-        margin: .6em;
-        flex-shrink: 0;
-    }
-
-    /* 左侧按钮 */
-    .toggle-btn {
-        order: 1;
-    }
-
-    /* 搜索框在中间 */
-    .head-search {
-        flex: 1;
-        float: none;
-        margin: .6em 0;
-        order: 2;
-    }
-
-    /* 右侧按钮 */
-    .search-btn {
-        order: 3;
-    }
-
-    /* 菜单独占一行 */
-    .head-menu {
-        width: 100%;  /* 占满整行 */
-        order: 10;  /* 排到最后 */
+    .head-menu{
         max-height: 0;
         padding: 0 1em;
         display: block;
