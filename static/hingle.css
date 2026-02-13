@@ -1119,8 +1119,35 @@ pre[class*="language-"].line-numbers {
     }
 
     
-    /* 菜单折叠功能 */
+/* 关键：给header一个统一的flex容器 */
+    header {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;  /* 这里让所有子元素垂直居中 */
+        min-height: 3.2em;  /* 保持原高度 */
+    }
+
+    /* 按钮恢复正常，取消float */
+    .toggle-btn,
+    .search-btn {
+        float: none;  /* 取消float */
+        margin: .6em;
+        flex-shrink: 0;  /* 防止被压缩 */
+    }
+
+    /* 搜索框也取消float和margin hack */
+    .head-search {
+        flex: 1;  /* 自动占据剩余空间 */
+        float: none;
+        margin: .6em;
+        margin-left: 0;  /* 重置 */
+        margin-right: 0;  /* 重置 */
+    }
+
+    /* 菜单独占一行 */
     .head-menu {
+        width: 100%;  /* 占满整行 */
+        order: 10;  /* 排到最后 */
         max-height: 0;
         padding: 0 1em;
         display: block;
