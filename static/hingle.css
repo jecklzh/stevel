@@ -1113,28 +1113,34 @@ pre[class*="language-"].line-numbers {
    ========================================== */
 
 @media screen and (max-width: 599px) {
+    /* 隐藏标题 */
     .head-title {
         display: none;
     }
 
-    /* 强制按钮和图标统一高度对齐 */
+    /* 按钮统一对齐 - 使用flex */
     .toggle-btn,
     .search-btn {
         height: 2em !important;
-        line-height: 2em !important;  /* 关键：用line-height撑开高度 */
-        padding: 0 !important;
-        display: inline-block !important;  /* 不用flex，用传统方式 */
-        vertical-align: middle !important;
-        text-align: center !important;
         width: 2em !important;
+        margin: .6em !important;
+        padding: 0 !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
     }
-    
+
     .toggle-btn:before,
     .search-btn:before {
-        display: inline-block !important;
-        vertical-align: middle !important;
-        line-height: 1 !important;  /* 重置图标自己的行高 */
+        line-height: 1 !important;
         margin: 0 !important;
+    }
+
+    /* 搜索框对齐 */
+    .head-search {
+        display: flex;
+        align-items: center;
+        margin: .6em 0;
     }
     
     /* 菜单折叠功能 */
