@@ -275,29 +275,43 @@ header {
 }
 
 /* 按钮组 */
-.toggle-btn, .light-btn, .search-btn{
+.toggle-btn,
+.light-btn,
+.search-btn {
     z-index: 1;
     float: left;
     width: 2em;
+    height: 2em;
     margin: .6em;
     cursor: pointer;
     position: relative;
-    border-radius: .25em;
     border-radius: var(--radius);
     transition: color .3s, background-color .3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.toggle-btn{ margin-right: 0 }
-.search-btn{ float: right }
+.toggle-btn {
+    margin-right: 0;
+}
 
-.toggle-btn:hover, .light-btn:hover, .search-btn:hover{
+.search-btn {
+    float: right;
+}
+
+.toggle-btn:hover,
+.light-btn:hover,
+.search-btn:hover {
     background-color: rgba(0, 0, 0, .05);
 }
 
-.toggle-btn:before, .light-btn:before, .search-btn:before{
-    display: block;
-    text-align: center;
-    font: 1em/2em "FontAwesome";
+.toggle-btn:before,
+.light-btn:before,
+.search-btn:before {
+    font-family: "FontAwesome";
+    font-size: 1em;
+    line-height: 1;
 }
 
 .toggle-btn:before { content: "\f0c9"; }
@@ -1099,9 +1113,6 @@ pre[class*="language-"].line-numbers {
    ========================================== */
 
 @media screen and (max-width: 599px) {
-    .head-title {
-        display: none;
-    }
 
     .head-menu{
         max-height: 0;
