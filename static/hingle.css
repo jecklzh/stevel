@@ -1142,6 +1142,14 @@ pre[class*="language-"].line-numbers {
 
 /* 手机端：全面布局优化 */
 @media screen and (max-width: 800px) {
+    /* 状态栏 - 不固定 */
+    header {
+        position: relative;
+    }
+    
+    main {
+        margin-top: 0;  /* 重置间距 */
+    }
     
     /* 文章结尾作者信息 - 横向布局 */
     .post-author {
